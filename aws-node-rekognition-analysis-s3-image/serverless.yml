@@ -27,3 +27,4 @@ functions:
       - http:
           path: analysis
           method: post    
+	  cors: true

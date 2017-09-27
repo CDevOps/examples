@@ -7,7 +7,6 @@ const ImageAnalyser = require('./lib/imageAnalyser');
  */
 module.exports.imageAnalysis = (event, context, callback) => {
   const data = JSON.parse(event.body);
-
   const s3Config = {
     bucket: data.bucket,
     imageName: data.imageName,
@@ -18,7 +17,7 @@ module.exports.imageAnalysis = (event, context, callback) => {
     .then((labels) => {
       const response = {
         statusCode: 200,
-        body: JSON.stringify({ Labels: labels }),
+        body: { Labels: labels },
       };
       callback(null, response);
     })
